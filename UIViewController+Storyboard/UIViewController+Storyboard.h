@@ -8,24 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface UIViewController (Storyboard)
 
-/**
- *  根据identifier，在bundle的所有storyboard中查找并生成一个实例
- *
- *  不用处理对象是在哪个storyboard文件中。如果没有找到，返回nil
- *
- *  @warning storyboard文件名中不能带'~' 否则无法找到
- *
- *  @return instance or nil
- */
-+ (nullable instancetype)instanceFromStoryboardWithIdentifier:(nonnull NSString *)identifier;
++ (nullable instancetype)dd_instanceFromStoryboardWithIdentifier:(nonnull NSString *)identifier;
 
 /**
- *  同 +instanceFromStoryboardWithIdentifier:  identifier为调用的类的类名
+ *  @brief UIViewController instance create from storyboard. UIViewController'identifier must be the same as it's class name
+ *  
+ *  or simple [[UIViewController alloc] init]
  *
- *  @return instance or nil
+ *  @return instance
  */
-+ (nullable instancetype)instanceFromStoryboard;
++ (instancetype)dd_instanceFromStoryboard;
 
 @end
+
+NS_ASSUME_NONNULL_END
